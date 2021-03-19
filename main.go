@@ -40,15 +40,12 @@ func Run(d *Dedupe) error {
 		return err
 	}
 
-	details, err := d.fileDetails()
+	err = d.fileDetails()
 	if err != nil {
 		return err
 	}
 
-	for _, d := range details {
-		fmt.Println(d)
-	}
-	// fs.Open()
+	_ = d.groupMaybeDupes()
 
 	return nil
 }
